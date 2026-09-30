@@ -1,1597 +1,821 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="石头集团有限责任公司官方网站，专注教育研发、科技创新、游戏开发、林木生态科研、图文制作">
-<meta name="keywords" content="石头集团,SHITOU AI,人工智能,教育研发,科技创新,游戏开发">
-<meta name="author" content="石头集团有限责任公司">
-<title>
-石头集团有限责任公司 | SHITOU Group Co.,Ltd
-</title>
-<!-- 字体 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<!-- 主样式 -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="石头集团有限责任公司官方网站" />
+<meta name="keywords" content="石头集团, SHITOU, 石头集团有限责任公司" />
+<meta name="author" content="石头集团有限责任公司" />
+<title>石头集团有限责任公司 | SHITOU Group Co.,Ltd</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
 /* ===============================
-基础设置
+   顶部导航
 ================================ */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-html{
-scroll-behavior:smooth;
+
+.nav {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-body{
-font-family:
-'Noto Sans SC',
-Arial,
-sans-serif;
-background:#000;
-color:#fff;
-overflow-x:hidden;
+
+.logo {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #000000;
 }
-a{
-color:inherit;
-text-decoration:none;
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
-img{
-max-width:100%;
-display:block;
+
+.nav-menu a {
+  font-size: 14px;
+  color: #111111;
+  opacity: 0.72;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
 }
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  opacity: 1;
+}
+
 /* ===============================
-顶部导航
+   页面切换
 ================================ */
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 8%;
-z-index:999;
-background:
-rgba(0,0,0,0.45);
-backdrop-filter:blur(20px);
-border-bottom:
-1px solid rgba(255,255,255,0.08);
+.page {
+  display: none;
+  padding-top: 110px;
+  padding-bottom: 80px;
 }
-.logo{
-font-size:26px;
-font-weight:700;
-letter-spacing:2px;
+
+.page.active {
+  display: block;
 }
-.logo span{
-font-weight:300;
-font-size:14px;
-margin-left:10px;
-opacity:.7;
-}
-.nav{
-display:flex;
-gap:40px;
-}
-.nav a{
-font-size:15px;
-color:#ddd;
-transition:.3s;
-}
-.nav a:hover{
-color:white;
-}
+
 /* ===============================
-首页主视觉
+   通用区块
 ================================ */
-.hero{
-height:100vh;
-min-height:760px;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-background:
-radial-gradient(
-circle at center,
-#1b2735 0%,
-#000 70%
-);
+.section-block {
+  padding: 56px 0;
 }
-.hero::before{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-background:
-radial-gradient(
-circle,
-rgba(0,150,255,.35),
-transparent 70%
-);
-animation:
-pulse 8s infinite;
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6e6e73;
+  margin-bottom: 16px;
 }
-@keyframes pulse{
-0%{
-transform:scale(1);
-opacity:.5;
+
+.title {
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #000000;
+  margin-bottom: 22px;
 }
-50%{
-transform:scale(1.3);
-opacity:.9;
+
+.subtitle {
+  font-size: clamp(19px, 1.6vw, 22px);
+  font-weight: 400;
+  color: #424245;
+  line-height: 1.45;
+  margin-bottom: 24px;
 }
-100%{
-transform:scale(1);
-opacity:.5;
+
+.desc {
+  font-size: 16px;
+  color: #424245;
+  line-height: 1.75;
+  max-width: 780px;
 }
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  color:#000;
 }
-.hero-content{
-position:relative;
-z-index:2;
-max-width:1000px;
+
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color:#000;
 }
-.hero-title{
-font-size:
-clamp(45px,7vw,90px);
-font-weight:900;
-letter-spacing:5px;
-line-height:1.1;
-background:
-linear-gradient(
-90deg,
-#fff,
-#8fd3ff
-);
--webkit-background-clip:text;
-color:transparent;
-}
-.hero-subtitle{
-font-size:24px;
-margin-top:30px;
-font-weight:300;
-color:#ccc;
-}
-.hero-text{
-margin-top:20px;
-font-size:16px;
-color:#999;
-line-height:2;
-}
-.hero-buttons{
-margin-top:45px;
-display:flex;
-justify-content:center;
-gap:20px;
-}
-.btn{
-padding:14px 38px;
-border-radius:40px;
-font-size:16px;
-transition:.4s;
-}
-.btn-primary{
-background:#fff;
-color:#000;
-}
-.btn-primary:hover{
-transform:translateY(-5px);
-box-shadow:
-0 20px 40px rgba(255,255,255,.25);
-}
-.btn-border{
-border:
-1px solid rgba(255,255,255,.5);
-}
-.btn-border:hover{
-background:#fff;
-color:#000;
-}
+
 /* ===============================
-通用区域
+   黑白按钮
 ================================ */
-.section{
-padding:
-140px 8%;
-position:relative;
+.btn-group {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
-.section-title{
-text-align:center;
-font-size:52px;
-font-weight:800;
-letter-spacing:3px;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 28px;
+  border-radius: 980px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
-.section-desc{
-text-align:center;
-margin-top:25px;
-color:#999;
-font-size:18px;
-line-height:2;
+
+.btn-black {
+  background: #000000;
+  color: #ffffff;
 }
+
+.btn-black:hover {
+  background: #222222;
+}
+
+.btn-white {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.btn-white:hover {
+  background: #f5f5f7;
+}
+
 /* ===============================
-公司介绍
+   通用卡片样式（所有板块统一按钮卡片，管理团队除外）
 ================================ */
-.about{
-display:flex;
-gap:80px;
-align-items:center;
-margin-top:80px;
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap:24px;
 }
-.about-box{
-flex:1;
+
+.card-item {
+  background: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding:32px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.about-title{
-font-size:42px;
-margin-bottom:30px;
+.card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-.about-text{
-font-size:18px;
-line-height:2.2;
-color:#bbb;
+
+.card-item h4 {
+  margin-bottom: 12px;
+  color:#000;
 }
-.about-card{
-background:
-linear-gradient(
-145deg,
-#111,
-#050505
-);
-padding:50px;
-border-radius:30px;
-border:
-1px solid rgba(255,255,255,.1);
+
+.card-item p {
+  font-size: 15px;
+  color: #424245;
+  line-height: 1.7;
 }
-.about-card h3{
-font-size:28px;
-margin-bottom:20px;
-}
-.about-card p{
-color:#aaa;
-line-height:2;
-}
-.about-card p{
-color:#aaa;
-line-height:2;
-}
+
 /* ===============================
-五大业务板块
+   首页
 ================================ */
-.business-section{
-background:
-linear-gradient(
-180deg,
-#000,
-#050505
-);
+.home-hero {
+  padding: 60px 0 80px;
+  text-align: left;
 }
-.business-grid{
-margin-top:80px;
-display:grid;
-grid-template-columns:
-repeat(5,1fr);
-gap:25px;
+
+.home-hero .title {
+  max-width: 900px;
 }
-.business-card{
-height:420px;
-border-radius:30px;
-padding:40px 30px;
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.02)
-);
-border:
-1px solid rgba(255,255,255,.12);
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
-transition:.5s;
-position:relative;
-overflow:hidden;
+
+.home-hero .subtitle {
+  max-width: 780px;
 }
-.business-card::before{
-content:"";
-position:absolute;
-top:-100px;
-right:-100px;
-width:200px;
-height:200px;
-background:
-radial-gradient(
-circle,
-rgba(0,150,255,.5),
-transparent
-);
-}
-.business-card:hover{
-transform:
-translateY(-20px);
-border-color:
-rgba(255,255,255,.5);
-}
-.business-number{
-font-size:60px;
-font-weight:900;
-color:
-rgba(255,255,255,.15);
-position:absolute;
-top:30px;
-left:30px;
-}
-.business-card h3{
-font-size:28px;
-margin-bottom:15px;
-}
-.business-card p{
-font-size:15px;
-color:#aaa;
-line-height:2;
-}
+
 /* ===============================
-产品展示
+   关于我们
 ================================ */
-.products{
-background:#000;
+.about-text p {
+  margin-bottom: 16px;
 }
-.product-show{
-margin-top:100px;
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
 }
-.product-item{
-height:700px;
-border-radius:40px;
-margin-bottom:80px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(
-135deg,
-#111,
-#030303
-);
-border:
-1px solid rgba(255,255,255,.1);
+
+.about-card {
+  background: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 36px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.product-item::after{
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:
-radial-gradient(
-circle,
-rgba(0,150,255,.25),
-transparent 70%
-);
+.about-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-.product-content{
-position:relative;
-z-index:2;
-text-align:center;
+
+.about-card h4 {
+  margin-bottom: 14px;
+  color:#000;
 }
-.product-label{
-font-size:18px;
-color:#999;
-letter-spacing:5px;
+
+.about-card p {
+  font-size: 15px;
+  color: #424245;
+  line-height: 1.7;
 }
-.product-title{
-font-size:70px;
-font-weight:900;
-margin-top:25px;
-}
-.product-desc{
-font-size:22px;
-color:#bbb;
-margin-top:20px;
-}
-.product-price{
-font-size:40px;
-margin-top:35px;
-font-weight:700;
-}
-.product-btn{
-display:inline-block;
-margin-top:40px;
-padding:15px 45px;
-border-radius:50px;
-background:#fff;
-color:#000;
-transition:.3s;
-}
-.product-btn:hover{
-transform:
-scale(1.08);
-}
+
 /* ===============================
-SHITOU AI 产品
+   业务板块
 ================================ */
-.ai-section{
-background:
-linear-gradient(
-180deg,
-#000,
-#08111d
-);
+.business-detail-list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:24px;
 }
-.ai-title{
-font-size:90px;
-font-weight:900;
+
+.business-detail-row {
+  background: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding:32px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.ai-desc{
-font-size:25px;
-color:#aaa;
-margin-top:20px;
+.business-detail-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+
+.business-detail-row h4 {
+  margin-bottom: 12px;
+  color:#000;
+}
+
+.business-detail-row p {
+  font-size: 15px;
+  color: #424245;
+  line-height: 1.7;
+}
+
 /* ===============================
-教育产品
+   【联系我们】纯文本列表，无序号，黑色标题，无生硬分割线
 ================================ */
-.education-section{
-background:#050505;
+.contact-list{
+  margin-top:32px;
 }
-.education-title{
-font-size:75px;
+.contact-list li{
+  list-style: none;
+  padding:14px 0;
 }
+.contact-list h4{
+  margin-bottom:6px;
+  color:#000;
+}
+.contact-list p{
+  font-size:16px;
+  color:#424245;
+}
+
 /* ===============================
-游戏产品
+   【管理团队】换回横向文本列表样式，不用卡片
 ================================ */
-.game-section{
-background:
-linear-gradient(
-180deg,
-#050505,
-#100800
-);
+.leader-list{
+  margin-top:32px;
 }
-.game-title{
-font-size:80px;
+.leader-item{
+  padding:20px 0;
+  border-bottom:1px solid rgba(0,0,0,0.08);
 }
+.leader-item:last-child{
+  border-bottom:none;
+}
+.leader-item h4{
+  font-size:20px;
+  color:#000;
+  margin-bottom:8px;
+}
+.leader-item p{
+  font-size:16px;
+  color:#424245;
+  max-width:780px;
+}
+
 /* ===============================
-科研中心
+   页脚（导航一行自动换行，版权+备案号）
 ================================ */
-.research{
-background:#000;
+.footer {
+  background: #f5f5f7;
+  padding: 56px 0 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
-.research-grid{
-margin-top:80px;
-display:grid;
-grid-template-columns:
-repeat(3,1fr);
-gap:30px;
+
+.footer-nav-wrap{
+  padding-bottom:32px;
+  border-bottom:1px solid rgba(0,0,0,0.12);
+  margin-bottom:24px;
 }
-.research-card{
-padding:45px;
-border-radius:25px;
-background:
-rgba(255,255,255,.04);
-border:
-1px solid rgba(255,255,255,.1);
-transition:.4s;
+.footer-nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
 }
-.research-card:hover{
-background:
-rgba(255,255,255,.1);
+.footer-nav-links a{
+  font-size:14px;
+  color:#424245;
+  cursor:pointer;
 }
-.research-card h3{
-font-size:30px;
-margin-bottom:20px;
+.footer-nav-links a:hover{
+  color:#000;
 }
-.research-card p{
-color:#aaa;
-line-height:2;
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: #6e6e73;
 }
+
 /* ===============================
-管理体系展示
+   响应式适配
 ================================ */
-.management{
-background:
-linear-gradient(
-180deg,
-#000,
-#080808
-);
+@media (max-width: 1200px) {
+  .about-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  }
+  .business-detail-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  }
 }
-.management-container{
-margin-top:80px;
-display:grid;
-grid-template-columns:
-repeat(4,1fr);
-gap:30px;
-}
-.management-item{
-padding:45px 35px;
-border-radius:30px;
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.02)
-);
-border:
-1px solid rgba(255,255,255,.1);
-}
-.management-item h3{
-font-size:28px;
-margin-bottom:20px;
-}
-.management-item p{
-font-size:16px;
-line-height:2;
-color:#aaa;
-}
-/* ===============================
-企业理念
-================================ */
-.values{
-background:#050505;
-}
-.values-content{
-margin-top:80px;
-display:flex;
-justify-content:center;
-gap:50px;
-}
-.value-box{
-width:300px;
-height:300px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-background:
-radial-gradient(
-circle,
-rgba(0,150,255,.2),
-transparent 70%
-);
-border:
-1px solid rgba(255,255,255,.15);
-}
-.value-box h3{
-font-size:30px;
-margin-bottom:15px;
-}
-.value-box p{
-color:#aaa;
-font-size:15px;
-}
-/* ===============================
-联系方式
-================================ */
-.contact{
-background:
-linear-gradient(
-180deg,
-#000,
-#050505
-);
-text-align:center;
-}
-.contact-box{
-margin-top:80px;
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-}
-.contact-item{
-width:320px;
-padding:40px;
-border-radius:25px;
-background:
-rgba(255,255,255,.05);
-border:
-1px solid rgba(255,255,255,.1);
-}
-.contact-item h3{
-font-size:24px;
-margin-bottom:20px;
-}
-.contact-item p{
-color:#bbb;
-line-height:2;
-}
-/* ===============================
-底部
-================================ */
-.footer{
-padding:
-50px 8%;
-background:#000;
-border-top:
-1px solid rgba(255,255,255,.1);
-}
-.footer-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.footer-logo{
-font-size:30px;
-font-weight:800;
-}
-.footer-text{
-color:#777;
-font-size:14px;
-}
-/* ===============================
-滚动动画
-================================ */
-.fade{
-opacity:0;
-transform:
-translateY(50px);
-transition:
-1s;
-}
-.fade.show{
-opacity:1;
-transform:
-translateY(0);
-}
-/* ===============================
-响应式设计
-================================ */
-@media(max-width:1200px){
-.business-grid{
-grid-template-columns:
-repeat(3,1fr);
-}
-.management-container{
-grid-template-columns:
-repeat(2,1fr);
-}
-}
-@media(max-width:768px){
-.header{
-padding:
-0 25px;
-}
-.nav{
-display:none;
-}
-.hero-title{
-font-size:45px;
-}
-.hero-subtitle{
-font-size:18px;
-}
-.about{
-flex-direction:column;
-}
-.business-grid{
-grid-template-columns:
-1fr;
-}
-.product-title{
-font-size:45px;
-}
-.management-container{
-grid-template-columns:
-1fr;
-}
-.values-content{
-flex-direction:column;
-align-items:center;
-}
-.footer-container{
-flex-direction:column;
-gap:20px;
-}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .nav-menu {
+    gap: 16px;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+  }
+  .leader-item{
+    padding:16px 0;
+  }
 }
 </style>
 </head>
 <body>
-<!-- ===============================
-顶部导航
-================================ -->
+
+<!-- 顶部导航 -->
 <header class="header">
-<div class="logo">
-石头集团
-<span>
-SHITOU Group Co.,Ltd
-</span>
-</div>
-<nav class="nav">
-<a href=" ">
-首页
-</a >
-<a href="#about">
-关于我们
-</a >
-<a href="#business">
-业务板块
-</a >
-<a href="#products">
-产品中心
-</a >
-<a href="#contact">
-联系我们
-</a >
-</nav>
+  <div class="container">
+    <nav class="nav">
+      <a class="logo">SHITOU</a>
+      <div class="nav-menu">
+        <a data-page="home" class="active">首页</a>
+        <a data-page="about">关于我们</a>
+        <a data-page="business">业务板块</a>
+        <a data-page="products">产品中心</a>
+        <a data-page="research">科研体系</a>
+        <a data-page="leadership">管理团队</a>
+        <a data-page="future">发展规划</a>
+        <a data-page="contact">联系我们</a>
+      </div>
+    </nav>
+  </div>
 </header>
-<!-- ===============================
-首页
-================================ -->
-<section class="hero" id="home">
-<div class="hero-content">
-<h1 class="hero-title">
-石头集团有限责任公司
-</h1>
-<div class="hero-subtitle">
-探索科技未来 · 创造无限可能
-</div>
-<p class="hero-text">
-2027年规范化运营<br>
-教育研发 · 科技创新 · 游戏开发 · 林木生态科研 · 图文制作
-</p >
-<div class="hero-buttons">
-<a href="#products" class="btn btn-primary">
-探索产品
-</a >
-<a href="#about" class="btn btn-border">
-了解公司
-</a >
-</div>
-</div>
-</section>
-<!-- ===============================
-关于我们
-================================ -->
-<section class="section" id="about">
-<h2 class="section-title fade">
-关于石头集团
-</h2>
-<p class="section-desc fade">
-以自主研发为核心，构建教育、科技、游戏、生态与视觉设计融合发展的创新体系。
-</p >
-<div class="about">
-<div class="about-box fade">
-<h3 class="about-title">
-石头集团有限责任公司
-</h3>
-<p class="about-text">
-石头集团有限责任公司2027年高管人名单
-董事局主席·石景逸、副总裁·石志龙、执行总裁·石登稳、秘书长·阮彩燕、总务处处长·杨雪花
-</p >
-<p class="about-text">
-公司围绕教育研发、科技创新、游戏开发、林木生态科研、图文制作五大领域布局。
-各板块独立运行，同时协同配合，
-所有内容、程序、科研材料、设计物料均由内部自主产出。
-</p >
-</div>
-<div class="about-box fade">
-<div class="about-card">
-<h3>
-标准化运营体系
-</h3>
-<p>
-集团建立完整标准化管理文件体系，
-覆盖企业运营全过程。
-</p >
-<p>
-包含：
-<br><br>
-人事管理体系<br>
-财务管理体系<br>
-高管管理体系<br>
-员工心理健康体系<br>
-员工成长发展体系
-</p >
-<p>
-通过科学管理方式，
-推动企业持续创新与稳定发展。
-</p >
-</div>
-</div>
-</div>
-</section>
-<!-- ===============================
-五大业务板块
-================================ -->
-<section class="section business-section" id="business">
-<h2 class="section-title fade">
-五大业务板块
-</h2>
-<p class="section-desc fade">
-五大业务板块固定排序，
-覆盖文教内容、技术研发、数字娱乐、生态科研、视觉设计领域。
-</p >
-<div class="business-grid">
-<div class="business-card fade">
-<div class="business-number">
-01
-</div>
-<h3>
-教育研发
-</h3>
-<p>
-围绕课程研发、教育内容建设，
-打造数字化教育产品体系。
-</p >
-</div>
-<div class="business-card fade">
-<div class="business-number">
-02
-</div>
-<h3>
-科技创新
-</h3>
-<p>
-聚焦人工智能、
-软件开发与数字技术研发。
-</p >
-</div>
-<div class="business-card fade">
-<div class="business-number">
-03
-</div>
-<h3>
-游戏开发
-</h3>
-<p>
-自主研发单机游戏、
-开放世界游戏及相关数字娱乐产品。
-</p >
-</div>
-<div class="business-card fade">
-<div class="business-number">
-04
-</div>
-<h3>
-林木生态科研
-</h3>
-<p>
-开展林木生态实验研究，
-探索科技与自然生态融合发展。
-</p >
-</div>
-<div class="business-card fade">
-<div class="business-number">
-05
-</div>
-<h3>
-图文制作
-</h3>
-<p>
-提供视觉设计、
-数字内容制作与品牌创意服务。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-产品中心
-================================ -->
-<section class="section products" id="products">
-<h2 class="section-title fade">
-核心产品
-</h2>
-<p class="section-desc fade">
-自主研发产品矩阵，
-打造人工智能、教育、游戏等多领域产品生态。
-</p >
-<div class="product-show">
-<!-- SHITOU AI 国内版 -->
-<div class="product-item ai-section fade">
-<div class="product-content">
-<div class="product-label">
-AI TECHNOLOGY
-</div>
-<h3 class="product-title ai-title">
-SHITOU AI
-</h3>
-<p class="product-desc">
-国内版人工智能应用平台
-</p >
-<p class="product-price">
-免费
-</p >
-<a href=" " class="product-btn">
-立即体验
-</a >
-</div>
-</div>
-<!-- SHITOU AI 国际版 -->
-<div class="product-item fade">
-<div class="product-content">
-<div class="product-label">
-GLOBAL AI
-</div>
-<h3 class="product-title">
-SHITOU AI 国际版
-</h3>
-<p class="product-desc">
-面向全球用户的人工智能服务平台
-</p >
-<p class="product-price">
-免费
-</p >
-<a href="#" class="product-btn">
-立即体验
-</a >
-</div>
-</div>
-<!-- 石头教育全课包 -->
-<div class="product-item education-section fade">
-<div class="product-content">
-<div class="product-label">
-EDUCATION RESEARCH
-</div>
-<h3 class="product-title education-title">
-石头教育
-</h3>
-<p class="product-desc">
-全课包数字教育产品
-</p >
-<p class="product-price">
-¥199
-</p >
-<a href=" " class="product-btn">
-立即购买
-</a >
-</div>
-</div>
-<!-- 单机游戏 幻域征途 -->
-<div class="product-item game-section fade">
-<div class="product-content">
-<div class="product-label">
-GAME DEVELOPMENT
-</div>
-<h3 class="product-title game-title">
-幻域征途
-</h3>
-<p class="product-desc">
-自主研发单机游戏作品
-探索虚拟世界与数字娱乐未来
-</p >
-<p class="product-price">
-¥128
-</p >
-<a href="#" class="product-btn">
-了解游戏
-</a >
-</div>
-</div>
-<!-- STA开放世界游戏 -->
-<div class="product-item fade">
-<div class="product-content">
-<div class="product-label">
-OPEN WORLD GAME
-</div>
-<h3 class="product-title">
-STA
-</h3>
-<p class="product-desc">
-开发世界游戏产品
-打造自由探索型数字世界
-</p >
-<p class="product-price">
-¥649
-</p >
-<a href="#" class="product-btn">
-了解游戏
-</a >
-</div>
-</div>
-</div>
-</section>
-<!-- ===============================
-科研中心
-================================ -->
-<section class="section research" id="research">
-<h2 class="section-title fade">
-科研创新体系
-</h2>
-<p class="section-desc fade">
-围绕技术研发、内容创新、生态实验，
-建立长期科研发展体系。
-</p >
-<div class="research-grid">
-<div class="research-card fade">
-<h3>
-自主研发
-</h3>
-<p>
-公司坚持内部自主研发模式，
-所有程序、内容、科研材料及设计物料均由内部团队完成。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-科研规范
-</h3>
-<p>
-严格规范科研行为，
-建立标准化科研流程，
-保障研发工作的持续推进。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-创新协同
-</h3>
-<p>
-五大业务板块互相协作，
-形成教育、科技、娱乐、生态融合发展的创新体系。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-林木生态科研展示
-================================ -->
-<section class="section fade">
-<h2 class="section-title">
-林木生态科研
-</h2>
-<p class="section-desc">
-探索科技与自然生态融合，
-开展林业试验与生态研究工作。
-</p >
-<div class="about" style="margin-top:80px;">
-<div class="about-box">
-<div class="about-card">
-<h3>
-生态研究
-</h3>
-<p>
-关注林木生态环境、
-植物生长规律以及绿色发展方向。
-</p >
-<p>
-通过科研实验，
-探索可持续生态发展路径。
-</p >
-</div>
-</div>
-<div class="about-box">
-<div class="about-card">
-<h3>
-未来方向
-</h3>
-<p>
-结合现代科技能力，
-推动生态科研数字化。
-</p >
-<p>
-实现科技创新与自然保护共同发展。
-</p >
-</div>
-</div>
-</div>
-</section>
-<!-- ===============================
-图文制作中心
-================================ -->
-<section class="section" id="design">
-<h2 class="section-title fade">
-图文制作
-</h2>
-<p class="section-desc fade">
-视觉设计、品牌创意、
-数字内容制作综合服务。
-</p >
-<div class="research-grid">
-<div class="research-card fade">
-<h3>
-视觉设计
-</h3>
-<p>
-进行企业视觉设计、
-品牌形象设计以及数字媒体制作。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-内容创作
-</h3>
-<p>
-围绕企业宣传、
-产品展示、
-数字内容进行创意制作。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-品牌建设
-</h3>
-<p>
-通过视觉语言提升企业影响力，
-打造具有识别度的品牌形象。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-科研会议体系
-================================ -->
-<section class="section management" id="research-meeting">
-<h2 class="section-title fade">
-科研会议体系
-</h2>
-<p class="section-desc fade">
-每年定期开展科研研讨会议，
-规范科研方向，加强内部协同。
-</p >
-<div class="management-container">
-<div class="management-item fade">
-<h3>
-春季科研会议
-</h3>
-<p>
-围绕年度研发规划、
-技术方向、
-项目推进开展系统研讨。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-夏季科研会议
-</h3>
-<p>
-总结阶段成果，
-优化科研方案，
-推动重点项目持续发展。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-科研规范管理
-</h3>
-<p>
-建立统一科研标准，
-保障所有研发活动符合内部管理要求。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-创新交流机制
-</h3>
-<p>
-促进不同业务板块交流合作，
-形成跨领域创新能力。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-企业管理体系
-================================ -->
-<section class="section">
-<h2 class="section-title fade">
-企业管理体系
-</h2>
-<p class="section-desc fade">
-完整管理制度，
-保障企业长期稳定运行。
-</p >
-<div class="management-container">
-<div class="management-item fade">
-<h3>
-人事管理
-</h3>
-<p>
-建立人才招聘、
-岗位管理、
-员工培养体系。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-财务管理
-</h3>
-<p>
-规范资金管理流程，
-保障企业经营安全。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-高管管理
-</h3>
-<p>
-明确管理职责，
-提升组织运行效率。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-员工成长
-</h3>
-<p>
-关注员工能力提升，
-建立长期发展体系。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-企业发展理念
-================================ -->
-<section class="section values">
-<h2 class="section-title fade">
-企业理念
-</h2>
-<div class="values-content">
-<div class="value-box fade">
-<h3>
-创新
-</h3>
-<p>
-持续探索未来技术
-</p >
-</div>
-<div class="value-box fade">
-<h3>
-自主
-</h3>
-<p>
-坚持内部研发创造
-</p >
-</div>
-<div class="value-box fade">
-<h3>
-发展
-</h3>
-<p>
-构建长期产业生态
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-公司优势
-================================ -->
-<section class="section">
-<h2 class="section-title fade">
-为什么选择石头国际
-</h2>
-<div class="research-grid">
-<div class="research-card fade">
-<h3>
-自主研发能力
-</h3>
-<p>
-从内容、程序、
-科研材料到设计物料，
-全部坚持内部自主产出。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-多领域布局
-</h3>
-<p>
-覆盖教育、
-科技、
-游戏、
-生态、
-设计五大领域。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-标准化运营
-</h3>
-<p>
-完善企业管理体系，
-推动规范化长期发展。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-企业领导与组织
-================================ -->
-<section class="section" id="leadership">
-<h2 class="section-title fade">
-管理团队
-</h2>
-<p class="section-desc fade">
-统一战略规划，
-推动企业各业务板块协同发展。
-</p >
-<div class="about">
-<div class="about-box fade">
-<div class="about-card">
-<h3>
-董事局主席
-</h3>
-<p>
-石景逸
-</p >
-<p>
-负责公司整体战略规划、
-业务统筹以及企业发展方向管理。
-</p >
-</div>
-</div>
-<div class="about-box fade">
-<div class="about-card">
-<h3>
-组织运营
-</h3>
-<p>
-公司按照五大业务板块进行管理布局，
-各部门独立运行，
-同时保持战略协同。
-</p >
-<p>
-通过规范化运营体系，
-推动企业持续创新。
-</p >
-</div>
-</div>
-</div>
-</section>
-<!-- ===============================
-发展规划
-================================ -->
-<section class="section">
-<h2 class="section-title fade">
-未来发展规划
-</h2>
-<p class="section-desc fade">
-持续推进技术创新，
-打造具有影响力的综合型创新企业。
-</p >
-<div class="research-grid">
-<div class="research-card fade">
-<h3>
-科技方向
-</h3>
-<p>
-持续研发人工智能应用，
-探索数字技术发展方向。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-教育方向
-</h3>
-<p>
-完善数字教育产品体系，
-推动知识内容创新。
-</p >
-</div>
-<div class="research-card fade">
-<h3>
-游戏方向
-</h3>
-<p>
-打造自主游戏品牌，
-探索开放世界数字体验。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-品牌愿景
-================================ -->
-<section class="section values">
-<h2 class="section-title fade">
-品牌愿景
-</h2>
-<p class="section-desc fade">
-以科技连接未来，
-以创新创造价值。
-</p >
-<div class="values-content">
-<div class="value-box fade">
-<h3>
-科技
-</h3>
-<p>
-探索智能时代
-</p >
-</div>
-<div class="value-box fade">
-<h3>
-教育
-</h3>
-<p>
-传播知识力量
-</p >
-</div>
-<div class="value-box fade">
-<h3>
-生态
-</h3>
-<p>
-守护绿色未来
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-合作伙伴区域
-================================ -->
-<section class="section">
-<h2 class="section-title fade">
-合作与交流
-</h2>
-<p class="section-desc fade">
-石头集团期待与更多企业、
-科研机构及创新团队开展交流合作。
-</p >
-<div class="management-container">
-<div class="management-item fade">
-<h3>
-技术合作
-</h3>
-<p>
-围绕人工智能、
-软件研发、
-数字技术展开合作。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-内容合作
-</h3>
-<p>
-推动教育内容、
-数字创意领域交流。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-生态合作
-</h3>
-<p>
-探索科技与生态科研融合发展。
-</p >
-</div>
-<div class="management-item fade">
-<h3>
-未来合作
-</h3>
-<p>
-共同创造更多创新可能。
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-联系我们
-================================ -->
-<section class="section contact" id="contact">
-<h2 class="section-title fade">
-联系我们
-</h2>
-<p class="section-desc fade">
-欢迎了解石头集团，
-与我们共同探索未来。
-</p >
-<div class="contact-box">
-<div class="contact-item fade">
-<h3>
-联系电话
-</h3>
-<p>
-13992306595
-</p >
-</div>
-<div class="contact-item fade">
-<h3>
-企业邮箱
-</h3>
-<p>
-3843060299@qq.com
-</p >
-</div>
-<div class="contact-item fade">
-<h3>
-公司地址
-</h3>
-<p>
-陕西省渭南市临渭区万科城观园
-</p >
-</div>
-</div>
-</section>
-<!-- ===============================
-页脚
-================================ -->
+
+<main>
+  <!-- ===================== 首页 ===================== -->
+  <section class="page active" id="home">
+    <div class="container">
+      <div class="section-block home-hero">
+        <h1 class="title">以科技连接未来，<br>以创新创造价值。</h1>
+        <p class="subtitle">教育研发、科技创新、游戏开发、林木生态科研、图文制作，五大领域协同发展。</p>
+        <div class="btn-group">
+          <a class="btn btn-black" data-page="business">查看业务</a>
+          <a class="btn btn-white" data-page="contact">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 关于我们 ===================== -->
+  <section class="page" id="about">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">关于我们</div>
+        <h2 class="title">石头集团有限责任公司</h2>
+        <p class="subtitle">以自主研发为核心，构建教育、科技、游戏、生态与视觉设计融合发展的创新体系。</p>
+      </div>
+
+      <div class="section-block about-text">
+        <h3>集团简介</h3>
+        <p>石头集团有限责任公司围绕五大领域布局。</p>
+        <p>教育研发、科技创新、游戏开发、林木生态科研、图文制作。</p>
+        <p>各板块独立运行，保持战略协同。</p>
+        <p>坚持内部自主研发模式。</p>
+        <p>程序、内容、科研材料、设计物料均由内部团队完成。</p>
+        <p>持续推进规范化运营，强化管理标准与创新协同能力。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>发展定位</h3>
+        <p class="desc">石头集团有限责任公司致力于成为一家以科技创新为驱动、以内容产出为基础、以多领域协同为特色的综合型创新企业。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>管理体系</h3>
+        <p class="desc">集团建立完整标准化管理文件体系，覆盖企业运营全过程，推动持续创新与稳定发展。</p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <h4>标准化运营</h4>
+            <p>集团建立完整标准化管理文件体系，覆盖企业运营全过程。</p>
+          </div>
+          <div class="about-card">
+            <h4>多领域协同</h4>
+            <p>五大业务板块独立运行、协同配合，形成融合发展体系。</p>
+          </div>
+          <div class="about-card">
+            <h4>内部自主研发</h4>
+            <p>从内容、程序、科研材料到设计物料，全部坚持内部自主产出。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>集团能力</h3>
+        <p class="desc">集团能力集中体现在自主研发能力、产品落地能力、跨领域协同能力与规范化运营能力四个方面。</p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <h4>内容研发能力</h4>
+            <p>围绕教育内容、视觉内容、数字内容进行持续产出。</p>
+          </div>
+          <div class="about-card">
+            <h4>技术研发能力</h4>
+            <p>聚焦人工智能、软件开发与数字技术研发，推动产品智能化。</p>
+          </div>
+          <div class="about-card">
+            <h4>组织运营能力</h4>
+            <p>通过标准化管理体系，保障集团长期稳定运行。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 业务板块【新版卡片，移除01 02序号】 ===================== -->
+  <section class="page" id="business">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">业务板块</div>
+        <h2 class="title">五大业务板块</h2>
+        <p class="subtitle">覆盖文教内容、技术研发、数字娱乐、生态科研与视觉设计领域。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>业务列表</h3>
+        <p class="desc">五大业务板块独立运行，同时保持战略协同，形成集团长期发展的业务底座。</p>
+
+        <div class="business-detail-list">
+          <div class="business-detail-row">
+            <h4>教育研发</h4>
+            <p>围绕课程研发、教育内容建设，打造数字化教育产品体系。</p>
+          </div>
+          <div class="business-detail-row">
+            <h4>科技创新</h4>
+            <p>聚焦人工智能、软件开发与数字技术研发，推动技术能力沉淀。</p>
+          </div>
+          <div class="business-detail-row">
+            <h4>游戏开发</h4>
+            <p>自主研发单机游戏、开放世界游戏及相关数字娱乐产品。</p>
+          </div>
+          <div class="business-detail-row">
+            <h4>林木生态科研</h4>
+            <p>开展林木生态实验研究，探索科技与自然生态融合发展路径。</p>
+          </div>
+          <div class="business-detail-row">
+            <h4>图文制作</h4>
+            <p>提供视觉设计、数字内容制作与品牌创意服务，提升品牌表达能力。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>协同机制</h3>
+        <p class="desc">五大业务板块之间建立协同机制，教育内容为产品提供素材基础，科技能力为各业务提供技术支持，游戏与图文业务共同提升数字内容产出能力。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>业务目标</h3>
+        <p class="desc">集团业务目标不是单一业务扩张，而是形成以自主研发为核心、以多领域协同为特色的业务生态。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 产品中心【卡片，去掉序号】 ===================== -->
+  <section class="page" id="products">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">产品中心</div>
+        <h2 class="title">核心产品</h2>
+        <p class="subtitle">自主研发产品矩阵，覆盖人工智能、教育、游戏等领域。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>产品列表</h3>
+        <p class="desc">集团产品围绕智能应用、教育内容与数字娱乐展开，形成产品矩阵。</p>
+
+        <div class="card-grid">
+          <div class="card-item">
+            <h4>SHITOU AI</h4>
+            <p>国内版人工智能应用平台，面向集团业务与数字化场景提供智能支持。<br>价格：免费</p>
+          </div>
+          <div class="card-item">
+            <h4>SHITOU AI 国际版</h4>
+            <p>面向全球用户的人工智能服务平台，探索更广泛的数字智能应用场景。<br>价格：免费</p>
+          </div>
+          <div class="card-item">
+            <h4>石头教育</h4>
+            <p>全课包数字教育产品，围绕课程内容与学习体验构建教育产品体系。<br>价格：¥199</p>
+          </div>
+          <div class="card-item">
+            <h4>幻域征途</h4>
+            <p>自主研发单机游戏作品，探索虚拟世界与数字娱乐未来。<br>价格：¥128</p>
+          </div>
+          <div class="card-item">
+            <h4>幻域征途</h4>
+            <p>自主研发单机游戏作品，探索虚拟世界与数字娱乐未来。<br>价格：¥128</p>
+          </div>
+          <div class="card-item">
+            <h4>STA</h4>
+            <p>开放世界游戏产品，打造自由探索型数字世界。<br>价格：¥649</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>产品定位</h3>
+        <p class="desc">集团产品定位以自主研发为基础，强调产品内容、技术实现与用户体验的统一。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 科研体系【卡片，去掉序号】 ===================== -->
+  <section class="page" id="research">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">科研体系</div>
+        <h2 class="title">自主科研体系</h2>
+        <p class="subtitle">持续内部研发，建立标准化科研流程。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>科研要点</h3>
+        <p class="desc">集团全部科研项目由内部团队独立完成，不依赖外部外包开发。</p>
+        <div class="card-grid">
+          <div class="card-item">
+            <h4>自主研发</h4>
+            <p>集团全部科研项目由内部团队独立完成，不依赖外部外包开发。</p>
+          </div>
+          <div class="card-item">
+            <h4>科研规范</h4>
+            <p>建立完整科研文档管理，从立项、实验、测试到落地全流程记录。</p>
+          </div>
+          <div class="card-item">
+            <h4>创新协同</h4>
+            <p>各业务板块科研成果互通，跨领域技术互相赋能。</p>
+          </div>
+          <div class="card-item">
+            <h4>科研会议机制</h4>
+            <p>定期科研评审会议，复盘项目进展，调整研发方向。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 管理团队【换回原来横向文本列表，不用卡片】 ===================== -->
+  <section class="page" id="leadership">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">管理团队</div>
+        <h2 class="title">集团管理团队</h2>
+        <p class="subtitle">核心管理成员，统筹集团各业务板块运营与研发。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>核心成员</h3>
+        <p class="desc">集团核心管理人员，负责战略制定、项目管理与业务落地。</p>
+
+        <div class="leader-list">
+          <div class="leader-item">
+            <h4>董事局主席</h4>
+            <p>负责集团整体战略规划，统筹各业务板块协同发展。</p>
+          </div>
+          <div class="leader-item">
+            <h4>总裁</h4>
+            <p>统筹集团日常经营管理，落实集团战略规划。</p>
+          </div>
+          <div class="leader-item">
+            <h4>执行总裁</h4>
+            <p>负责项目落地执行，推进各业务板块项目研发与交付。</p>
+          </div>
+          <div class="leader-item">
+            <h4>副总裁</h4>
+            <p>协助总裁开展业务管理，分管部分业务板块。</p>
+          </div>
+          <div class="leader-item">
+            <h4>总务处处长</h4>
+            <p>负责集团行政、后勤、内部事务管理工作。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 发展规划【卡片，去掉序号】 ===================== -->
+  <section class="page" id="future">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">发展规划</div>
+        <h2 class="title">集团长期发展规划</h2>
+        <p class="subtitle">稳步推进各业务板块，持续夯实自主研发能力。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>规划方向</h3>
+        <p class="desc">稳步推进各业务板块，持续夯实自主研发能力。</p>
+        <div class="card-grid">
+          <div class="card-item">
+            <h4>科技方向</h4>
+            <p>持续迭代SHITOU AI，拓展智能技术在集团内部业务场景落地。</p>
+          </div>
+          <div class="card-item">
+            <h4>教育方向</h4>
+            <p>完善石头教育课程库，丰富数字化教育内容体系。</p>
+          </div>
+          <div class="card-item">
+            <h4>游戏方向</h4>
+            <p>持续开发单机与开放世界项目，打磨游戏内容与体验。</p>
+          </div>
+          <div class="card-item">
+            <h4>生态方向</h4>
+            <p>稳步推进林木生态科研项目，积累实验数据。</p>
+          </div>
+          <div class="card-item">
+            <h4>品牌方向</h4>
+            <p>统一品牌形象，持续完善官网与对外内容。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 联系我们【无序号，黑色标题】 ===================== -->
+  <section class="page" id="contact">
+    <div class="container">
+      <div class="section-block">
+        <div class="label">联系我们</div>
+        <h2 class="title">与石头集团联系。</h2>
+        <p class="subtitle">欢迎洽谈合作、项目沟通与业务咨询。</p>
+      </div>
+
+      <div class="section-block">
+        <h3>联系方式</h3>
+        <p class="desc">欢迎洽谈合作、项目沟通与业务咨询。</p>
+        <ul class="contact-list">
+          <li>
+            <h4>电话</h4>
+            <p>13992306495</p>
+          </li>
+          <li>
+            <h4>邮箱</h4>
+            <p>shijingyi3843060@gmail.com</p>
+          </li>
+          <li>
+            <h4>地址</h4>
+            <p>陕西省渭南市临渭区万科城观园</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
 <footer class="footer">
-<div class="footer-container">
-<div class="footer-logo">
-石头集团
-</div>
-<div class="footer-text">
-© 2027 石头集团有限责任公司 版权所有
-<br>
-SHITOU Group Co.,Ltd
-</div>
-</div>
+  <div class="container">
+    <div class="footer-nav-wrap">
+      <div class="footer-nav-links">
+        <a data-page="home">首页</a>
+        <a data-page="about">关于我们</a>
+        <a data-page="business">业务板块</a>
+        <a data-page="products">产品中心</a>
+        <a data-page="research">科研体系</a>
+        <a data-page="leadership">管理团队</a>
+        <a data-page="future">发展规划</a>
+        <a data-page="contact">联系我们</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2027 年石头集团有限责任公司版权所有，保留所有权利。</div>
+      <div>陕ICP备2026052137号</div>
+    </div>
+  </div>
 </footer>
-<!-- ===============================
-JavaScript
-页面动画
-================================ -->
+
 <script>
-// ===============================
-// 滚动淡入动画
-// ===============================
-const fadeElements = document.querySelectorAll(".fade");
-function showOnScroll(){
-fadeElements.forEach((item)=>{
-const position = item.getBoundingClientRect().top;
-const windowHeight = window.innerHeight;
-if(position < windowHeight - 100){
-item.classList.add("show");
-}
-});
-}
-window.addEventListener(
-"scroll",
-showOnScroll
-);
-showOnScroll();
-// ===============================
-// 导航栏滚动效果
-// ===============================
-const header = document.querySelector(".header");
-window.addEventListener(
-"scroll",
-()=>{
-if(window.scrollY > 50){
-header.style.background =
-"rgba(0,0,0,0.85)";
-}
-else{
-header.style.background =
-"rgba(0,0,0,0.45)";
-}
-}
-);
-// ===============================
-// 产品按钮交互
-// ===============================
-const buttons = document.querySelectorAll(".product-btn");
-buttons.forEach((btn)=>{
-btn.addEventListener(
-"click",
-()=>{
-alert(
-"感谢关注石头集团产品，我们将持续推进创新研发。"
-);
-}
-);
-});
-// ===============================
-// 平滑导航
-// ===============================
-document.querySelectorAll(
-'a[href^="#"]'
-).forEach(anchor=>{
-anchor.addEventListener(
-"click",
-function(e){
-e.preventDefault();
-const target = document.querySelector(
-this.getAttribute("href")
-);
-if(target){
-target.scrollIntoView({
-behavior:"smooth"
-});
-}
-}
-);
-});
+// 页面切换逻辑
+const pages = document.querySelectorAll('.page');
+const menuLinks = document.querySelectorAll('[data-page]');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const targetId = link.getAttribute('data-page');
+    // 清除所有激活状态
+    pages.forEach(p => p.classList.remove('active'));
+    menuLinks.forEach(l => l.classList.remove('active'));
+    // 激活目标页面
+    document.getElementById(targetId).classList.add('active');
+    document.querySelectorAll(`[data-page="${targetId}"]`).forEach(el=>el.classList.add('active'));
+    window.scrollTo({top:0,behavior:'smooth'});
+  })
+})
 </script>
 </body>
 </html>
-<link rel="stylesheet" href="css/style.css">
-<script src="js/app.js"></script>
